@@ -1,0 +1,35 @@
+<% include header %>
+  <div class="container">
+  <div class="jumbotron text-center">
+    <h1 class="display-3">Danh sách dữ liệu</h1>
+    <p class="lead">Từ Postgre</p>
+    <hr class="my-2">
+    <table class="table table-striped table-hover table-inverse table-bordered">
+      <thead class="thead-inverse">
+        <tr>
+          <th>STT</th>
+          <th>Tên</th>
+          <th>Tuổi</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(function(nguoidung){ %>
+        <tr>
+          <td scope="row"><%= nguoidung.id %></td>
+          <td scope="row"><%= nguoidung.ten %></td>
+          <td><%= nguoidung.tuoi %></td>
+          <td>
+          <a href= "/sua/<%= nguoidung.id%>"><i class="fa fa-edit"></i> </a>
+          /
+          <a onClick = "return xoaAlern('Ban co chac muon xoa khong?')" href= "/xoa/<%= nguoidung.id%>"><i class="fa fa-remove"></i></a>           
+           
+           </td>
+        </tr>
+        
+  <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+<% include footer %>
